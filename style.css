@@ -1,0 +1,663 @@
+/* CSS Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #3b49df;
+    --primary-hover: #303bc5;
+    --text-dark: #111827;
+    --text-muted: #4b5563;
+    --bg-light: #ffffff;
+    --card-bg: #fafbff;
+    --card-border: #eef0f7;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Container Utility */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    box-shadow: 0 4px 12px rgba(59, 73, 223, 0.2);
+}
+
+.btn-outline {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(59, 73, 223, 0.2);
+}
+
+.highlight-blue {
+    color: var(--primary-blue);
+}
+
+/* Underline Image for "Compliance" in Hero */
+.compliance-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-image {
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    display: block;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 1000;
+    padding: 18px 0;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+/* Mobile Nav Drawer */
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+}
+
+.nav-drawer.open {
+    right: 0;
+}
+
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.drawer-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.drawer-links {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.drawer-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.drawer-footer {
+    padding: 20px 24px;
+    border-top: 1px solid var(--card-border);
+}
+
+/* ==========================================
+   HERO SECTION (DESKTOP 1440px)
+   ========================================== */
+.hero-section {
+    padding: 40px 0 90px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-content,
+.hero-visual {
+    min-width: 0;
+    width: 100%;
+}
+
+.hero-content h1 {
+    font-size: 62px;
+    line-height: 76px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+}
+
+.body-regular {
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 28px;
+}
+
+.checklist {
+    list-style: none;
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    color: var(--text-dark);
+}
+
+.check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+/* Hero Visual + Top Chevrons Anchored Top-Left of Image */
+.hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.top-chevrons {
+    margin-bottom: 12px;
+    margin-left: 8px;
+}
+
+.chevrons-wrapper img {
+    width: 105px;
+    height: auto;
+    display: block;
+}
+
+.hero-visual .hero-img {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ==========================================
+   COMPLIANCE SECTION (DESKTOP 1440px)
+   ========================================== */
+.compliance-section {
+    padding: 80px 0 100px 0;
+    background-color: var(--bg-light);
+    position: relative;
+}
+
+.compliance-top-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 56px;
+}
+
+.compliance-title-col,
+.compliance-desc-col {
+    min-width: 0;
+    width: 100%;
+}
+
+.compliance-title-col h2 {
+    font-size: 44px;
+    line-height: 58px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+/* Swirl Arrow Inline Right of "Analysts" on Desktop */
+.swirl-arrow-desktop {
+    display: inline-block;
+    vertical-align: middle;
+    width: 44px;
+    height: auto;
+    margin-left: 10px;
+    transform: translateY(14px);
+}
+
+.swirl-arrow-mobile {
+    display: none;
+}
+
+.compliance-desc-col .section-desc {
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.compliance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.compliance-image-col,
+.compliance-cards-col {
+    min-width: 0;
+    width: 100%;
+}
+
+.compliance-image-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-mockup {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-mockup img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Bottom Chevrons Below Dashboard Image */
+.bottom-chevrons {
+    margin-top: 24px;
+    align-self: flex-start;
+}
+
+/* Feature Cards */
+.compliance-cards-col {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 26px 28px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    background: var(--white);
+    border-color: var(--primary-blue);
+    box-shadow: 0 10px 30px rgba(59, 73, 223, 0.08);
+    transform: translateY(-2px);
+}
+
+.feature-card:hover h3 {
+    color: var(--primary-blue);
+}
+
+.card-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    background: #eef2ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+}
+
+.feature-card p.body-regular {
+    font-size: 16px;
+    line-height: 25px;
+}
+
+/* ==========================================
+   TABLET RESPONSIVENESS (768px - 1023px)
+   ========================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .nav-links {
+        display: none;
+    }
+    .nav-cta {
+        display: block;
+    }
+    .btn-nav {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .hero-grid, .compliance-grid, .compliance-top-container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .hero-section {
+        padding: 36px 0 64px 0;
+    }
+    .hero-content {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+    .hero-content h1 {
+        font-size: 46px;
+        line-height: 58px;
+    }
+    .checklist {
+        display: inline-flex;
+        text-align: left;
+        margin: 24px auto;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-visual {
+        max-width: 520px;
+        margin: 12px auto 0 auto;
+        align-items: flex-start;
+    }
+    .top-chevrons {
+        margin-left: 0;
+        margin-bottom: 8px;
+    }
+    .compliance-section {
+        padding: 64px 0 80px 0;
+    }
+    .compliance-top-container {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 32px auto;
+        gap: 16px;
+    }
+    .compliance-title-col h2 {
+        font-size: 38px;
+        line-height: 48px;
+    }
+    .swirl-arrow-desktop {
+        display: none;
+    }
+    .compliance-image-col {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+    .swirl-arrow-mobile {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 24px;
+        margin-bottom: -12px;
+    }
+    .swirl-arrow-mobile img {
+        width: 42px;
+        height: auto;
+    }
+    .bottom-chevrons {
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+    .chevrons-wrapper img {
+        width: 96px;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS (Up to 767px)
+   ========================================== */
+@media (max-width: 767px) {
+    .container, .nav-container {
+        padding: 0 20px;
+    }
+    .nav-links, .nav-cta {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .hero-grid, .compliance-grid, .compliance-top-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .hero-section {
+        padding: 28px 0 56px 0;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+        line-height: 46px;
+        margin-bottom: 18px;
+    }
+    .body-regular {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .checklist {
+        text-align: left;
+        margin: 24px 0;
+        gap: 12px;
+    }
+    .checklist li {
+        align-items: flex-start;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .check-icon {
+        margin-top: 2px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    .btn {
+        width: 100%;
+    }
+    .hero-visual {
+        margin-top: 12px;
+        align-items: flex-start;
+    }
+    .top-chevrons {
+        margin-left: 0;
+        margin-bottom: 8px;
+    }
+    .compliance-section {
+        padding: 56px 0 72px 0;
+    }
+    .compliance-top-container {
+        text-align: center;
+        margin-bottom: 24px;
+        gap: 16px;
+    }
+    .compliance-title-col h2 {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .compliance-desc-col .section-desc {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .swirl-arrow-desktop {
+        display: none;
+    }
+    .swirl-arrow-mobile {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 12px;
+        margin-bottom: -8px;
+    }
+    .swirl-arrow-mobile img {
+        width: 38px;
+        height: auto;
+    }
+    .bottom-chevrons {
+        margin-top: 16px;
+        margin-bottom: 4px;
+    }
+    .chevrons-wrapper img {
+        width: 84px;
+    }
+    .feature-card {
+        padding: 20px;
+        gap: 16px;
+    }
+    .feature-card h3 {
+        font-size: 19px;
+        line-height: 26px;
+    }
+}
