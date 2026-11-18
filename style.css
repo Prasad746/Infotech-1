@@ -111,15 +111,33 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-dark);
+    gap: 12px;
+    width: 158.71px !important;
+    height: 58px !important;
+    min-width: 158.71px;
+    max-width: 158.71px;
+    min-height: 58px;
+    max-height: 58px;
+    flex: 0 0 158.71px !important;
+    overflow: hidden;
+    text-decoration: none;
 }
 
 .logo img {
-    height: 32px;
+    height: 46px; 
     width: auto;
+    object-fit: contain;
+}
+
+.logo span {
+    width: 97px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
 }
 
 .nav-links {
@@ -145,6 +163,32 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
+}
+
+/* Global Strict Sizing for Nav CTA & Button so it applies to Desktop too */
+.nav-cta {
+    width: 169px !important;
+    height: 46px !important;
+    min-width: 169px;
+    max-width: 169px;
+    min-height: 46px;
+    max-height: 46px;
+    flex: 0 0 169px !important;
+}
+
+.btn-nav {
+    width: 169px !important;
+    height: 46px !important;
+    min-width: 169px;
+    max-width: 169px;
+    min-height: 46px;
+    max-height: 46px;
+    flex: 0 0 169px !important;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 .menu-toggle {
@@ -238,7 +282,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
-    align-items: center;
+    align-items: end;
 }
 
 .hero-content,
@@ -281,8 +325,8 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     background-color: var(--primary-blue);
     color: var(--white);
     border-radius: 50%;
@@ -296,29 +340,38 @@ body {
     margin-top: 32px;
 }
 
-/* Hero Visual + Top Chevrons Anchored Top-Left of Image */
+.hero-buttons .btn {
+    width: 213px !important;
+    height: 46px !important;
+    min-width: 213px;
+    max-width: 213px;
+    min-height: 46px;
+    max-height: 46px;
+    flex: 0 0 213px !important;
+    padding: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero-visual {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.top-chevrons {
-    margin-bottom: 12px;
-    margin-left: 8px;
+    justify-content: flex-end;
+    height: 100%;
 }
 
 .chevrons-wrapper img {
-    width: 105px;
+    width: 137.33px;
     height: auto;
     display: block;
 }
 
 .hero-visual .hero-img {
-    width: 100%;
-    max-width: 580px;
-    height: auto;
+    width: 739.13px;
+    height: 607px;
     display: block;
     object-fit: contain;
 }
@@ -334,13 +387,18 @@ body {
 
 .compliance-top-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 603.5px 1fr;
     gap: 48px;
     align-items: start;
     margin-bottom: 56px;
 }
 
-.compliance-title-col,
+.compliance-title-col {
+    width: 603.5px !important;
+    min-width: 603.5px;
+    max-width: 603.5px;
+}
+
 .compliance-desc-col {
     min-width: 0;
     width: 100%;
@@ -351,17 +409,18 @@ body {
     line-height: 58px;
     font-weight: 600;
     position: relative;
-    display: inline-block;
+    display: block;
+    width: 603.5px;
 }
 
-/* Swirl Arrow Inline Right of "Analysts" on Desktop */
+/* Swirl Arrow Positioned Exactly Next to "Research Analysts" */
 .swirl-arrow-desktop {
-    display: inline-block;
-    vertical-align: middle;
+    position: absolute;
+    right: -55px;
+    bottom: -22px;
     width: 44px;
     height: auto;
-    margin-left: 10px;
-    transform: translateY(14px);
+    pointer-events: none;
 }
 
 .swirl-arrow-mobile {
@@ -400,14 +459,13 @@ body {
 }
 
 .dashboard-mockup img {
-    width: 100%;
-    max-width: 520px;
+    width: 594px;
+    height: 594px;
     height: auto;
     display: block;
     object-fit: contain;
 }
 
-/* Bottom Chevrons Below Dashboard Image */
 .bottom-chevrons {
     margin-top: 24px;
     align-self: flex-start;
@@ -418,18 +476,26 @@ body {
     display: flex;
     flex-direction: column;
     gap: 22px;
+    align-items: center;
 }
 
 .feature-card {
+    width: 594px !important;
+    height: 142px !important;
+    min-width: 594px;
+    max-width: 594px;
+    min-height: 142px;
+    max-height: 142px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 18px;
-    padding: 26px 28px;
+    padding: 0 28px;
     background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    border: 1px solid #E2E7FF;
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    background-color: #FAFBFF;
 }
 
 .feature-card:hover {
@@ -454,6 +520,13 @@ body {
     justify-content: center;
 }
 
+.card-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
 .feature-card h3 {
     font-size: 20px;
     font-weight: 600;
@@ -467,28 +540,70 @@ body {
 }
 
 /* ==========================================
+   FLUID LAYOUT (below desktop)
+   Prevents any fixed pixel width from
+   overflowing the viewport between 768px
+   and 1279px.
+   ========================================== */
+@media (max-width: 1279px) {
+    .hero-visual .hero-img {
+        width: 100%;
+        max-width: 739px;
+        height: auto;
+    }
+    .compliance-title-col {
+        width: auto !important;
+        min-width: 0;
+        max-width: none;
+    }
+    .compliance-title-col h2 {
+        width: auto;
+        max-width: 640px;
+        font-size: 40px;
+        line-height: 54px;
+    }
+    .compliance-top-container {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 32px;
+    }
+    .swirl-arrow-desktop {
+        display: none;
+    }
+    .dashboard-mockup img {
+        width: 100%;
+        max-width: 594px;
+        height: auto;
+    }
+    .feature-card {
+        width: 100% !important;
+        min-width: 0;
+        max-width: 594px;
+        height: auto !important;
+        min-height: 0;
+        max-height: none;
+    }
+}
+
+/* ==========================================
    TABLET RESPONSIVENESS (768px - 1023px)
    ========================================== */
 @media (min-width: 768px) and (max-width: 1023px) {
+    .container, .nav-container {
+        padding: 0 20px;
+    }
     .nav-links {
         display: none;
-    }
-    .nav-cta {
-        display: block;
-    }
-    .btn-nav {
-        padding: 9px 18px;
-        font-size: 14px;
     }
     .menu-toggle {
         display: block;
     }
-    .hero-grid, .compliance-grid, .compliance-top-container {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
+
     .hero-section {
-        padding: 36px 0 64px 0;
+        padding: 32px 0 56px 0;
+    }
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
     .hero-content {
         text-align: center;
@@ -498,60 +613,119 @@ body {
     .hero-content h1 {
         font-size: 46px;
         line-height: 58px;
+        margin-bottom: 24px;
+    }
+    .hero-break {
+        display: inline;
+    }
+    .hero-content .body-regular {
+        max-width: 620px;
+        margin: 0 auto;
     }
     .checklist {
         display: inline-flex;
         text-align: left;
-        margin: 24px auto;
+        margin: 28px 0;
     }
     .hero-buttons {
         justify-content: center;
+        margin-top: 0;
     }
     .hero-visual {
-        max-width: 520px;
-        margin: 12px auto 0 auto;
-        align-items: flex-start;
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
     }
-    .top-chevrons {
-        margin-left: 0;
-        margin-bottom: 8px;
+    .hero-visual .hero-img {
+        width: 100%;
+        height: auto;
     }
+
     .compliance-section {
-        padding: 64px 0 80px 0;
+        padding: 56px 0 72px 0;
     }
     .compliance-top-container {
+        grid-template-columns: 1fr;
         text-align: center;
-        max-width: 640px;
-        margin: 0 auto 32px auto;
-        gap: 16px;
+        max-width: 660px;
+        margin: 0 auto 28px auto;
+        gap: 22px;
     }
     .compliance-title-col h2 {
-        font-size: 38px;
-        line-height: 48px;
+        font-size: 40px;
+        line-height: 56px;
+        max-width: 620px;
+        margin: 0 auto;
+    }
+    .compliance-title-col h2 br {
+        display: none;
+    }
+    .compliance-desc-col .section-desc {
+        font-size: 17px;
+        line-height: 29px;
     }
     .swirl-arrow-desktop {
         display: none;
     }
+    .compliance-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
     .compliance-image-col {
-        max-width: 540px;
+        width: 100%;
+        max-width: none;
         margin: 0 auto;
     }
     .swirl-arrow-mobile {
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 24px;
-        margin-bottom: -12px;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: calc((100% - 594px) / 2 + 20px);
+        margin: 0;
+        z-index: 1;
     }
     .swirl-arrow-mobile img {
-        width: 42px;
+        width: 40px;
+        height: auto;
+        display: block;
+    }
+    .dashboard-mockup img {
+        width: 594px;
+        max-width: 100%;
         height: auto;
     }
     .bottom-chevrons {
-        margin-top: 20px;
-        margin-bottom: 8px;
+        margin-top: -38px;
     }
     .chevrons-wrapper img {
-        width: 96px;
+        width: 161.52px;
+        height: 34.17px;
+    }
+
+    .compliance-cards-col {
+        width: 100%;
+        gap: 22px;
+        align-items: stretch;
+    }
+    .feature-card {
+        width: 100% !important;
+        max-width: none;
+        padding: 34px 28px;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .card-icon {
+        width: 42px;
+        height: 42px;
+    }
+    .feature-card h3 {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 10px;
+    }
+    .feature-card p.body-regular {
+        font-size: 16px;
+        line-height: 26px;
     }
 }
 
@@ -560,104 +734,336 @@ body {
    ========================================== */
 @media (max-width: 767px) {
     .container, .nav-container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
-    .nav-links, .nav-cta {
+    .navbar {
+        padding: 14px 0;
+    }
+    .nav-links {
         display: none;
     }
     .menu-toggle {
         display: block;
     }
-    .hero-grid, .compliance-grid, .compliance-top-container {
-        grid-template-columns: 1fr;
-        gap: 24px;
+    .nav-actions {
+        gap: 12px;
     }
+    .nav-cta {
+        display: flex;
+        width: 104px !important;
+        min-width: 104px;
+        max-width: 104px;
+        height: 38px !important;
+        min-height: 38px;
+        max-height: 38px;
+        flex: 0 0 104px !important;
+    }
+    .btn-nav {
+        width: 104px !important;
+        min-width: 104px;
+        max-width: 104px;
+        height: 38px !important;
+        min-height: 38px;
+        max-height: 38px;
+        flex: 0 0 104px !important;
+        font-size: 12px;
+        gap: 5px;
+    }
+    .btn-nav svg {
+        width: 13px;
+        height: 13px;
+    }
+
     .hero-section {
-        padding: 28px 0 56px 0;
+        padding: 22px 0 48px 0;
+    }
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
     .hero-content {
         text-align: center;
     }
     .hero-content h1 {
-        font-size: 36px;
-        line-height: 46px;
+        font-size: 34px;
+        line-height: 44px;
         margin-bottom: 18px;
     }
+    .hero-break {
+        display: none;
+    }
     .body-regular {
-        font-size: 16px;
-        line-height: 26px;
+        font-size: 15px;
+        line-height: 24px;
     }
     .checklist {
         text-align: left;
-        margin: 24px 0;
+        margin: 20px 0;
         gap: 12px;
     }
     .checklist li {
         align-items: flex-start;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 15px;
+        line-height: 22px;
+        gap: 10px;
     }
     .check-icon {
-        margin-top: 2px;
+        width: 20px;
+        height: 20px;
+        margin-top: 1px;
+    }
+    .check-icon img {
+        width: 100%;
+        height: 100%;
     }
     .hero-buttons {
         flex-direction: column;
         gap: 12px;
-        margin-top: 24px;
+        margin-top: 0;
     }
-    .btn {
-        width: 100%;
+    .hero-buttons .btn {
+        width: 100% !important;
+        min-width: 0;
+        max-width: none;
+        height: 46px !important;
+        flex: 0 0 auto;
+        font-size: 16px;
     }
     .hero-visual {
-        margin-top: 12px;
-        align-items: flex-start;
+        width: 100%;
+        margin: 0 auto;
     }
-    .top-chevrons {
-        margin-left: 0;
-        margin-bottom: 8px;
+    .hero-visual .hero-img {
+        width: 100%;
+        height: auto;
     }
+
     .compliance-section {
-        padding: 56px 0 72px 0;
+        padding: 48px 0 64px 0;
     }
     .compliance-top-container {
+        grid-template-columns: 1fr;
         text-align: center;
-        margin-bottom: 24px;
-        gap: 16px;
+        margin-bottom: 35px;
+        gap: 18px;
     }
     .compliance-title-col h2 {
-        font-size: 32px;
-        line-height: 42px;
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0 auto;
+    }
+    .compliance-title-col h2 br {
+        display: none;
     }
     .compliance-desc-col .section-desc {
-        font-size: 16px;
-        line-height: 26px;
+        font-size: 15px;
+        line-height: 24px;
     }
     .swirl-arrow-desktop {
         display: none;
     }
+    .compliance-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .compliance-image-col {
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+    }
     .swirl-arrow-mobile {
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 12px;
-        margin-bottom: -8px;
+        display: block;
+        position: absolute;
+        top: -20px;
+        right: 12px;
+        margin: 0;
+        z-index: 1;
     }
     .swirl-arrow-mobile img {
-        width: 38px;
+        width: 34px;
+        height: auto;
+        display: block;
+    }
+    .dashboard-mockup img {
+        width: 100%;
         height: auto;
     }
     .bottom-chevrons {
-        margin-top: 16px;
-        margin-bottom: 4px;
+        margin-top: -18px;
     }
     .chevrons-wrapper img {
-        width: 84px;
+        width: 85px;
+        height: 21.15px;
+    }
+
+    .compliance-cards-col {
+        width: 100%;
+        gap: 16px;
+        align-items: stretch;
     }
     .feature-card {
+        width: 100% !important;
+        max-width: none;
         padding: 20px;
-        gap: 16px;
+        gap: 14px;
+        align-items: flex-start;
+    }
+    .card-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 9px;
+    }
+    .card-icon img {
+        width: 22px;
+        height: 22px;
     }
     .feature-card h3 {
         font-size: 19px;
-        line-height: 26px;
+        line-height: 25px;
+        margin-bottom: 8px;
+    }
+    .feature-card p.body-regular {
+        font-size: 15px;
+        line-height: 24px;
+    }
+}
+
+/* ==========================================
+   WHY COMPLIANCE MATTERS - DESIGN MATCH (1440px frame)
+   Applies from 1280px up (1240px content + 20px side margins).
+   Every value below was measured from the Figma frame.
+   ========================================== */
+@media (min-width: 1280px) {
+    .compliance-section {
+        padding: 48px 0;
+    }
+
+    .compliance-section .container {
+        width: 1240px;
+        max-width: 1240px;
+        padding: 0;
+    }
+
+    /* Top row: heading column 640px + paragraph column 600px */
+    .compliance-top-container {
+        grid-template-columns: 640px 600px;
+        gap: 0;
+        align-items: center;
+        margin-bottom: 38px;
+    }
+
+    .compliance-title-col {
+        width: 640px !important;
+        min-width: 640px;
+        max-width: 640px;
+    }
+
+    .compliance-title-col h2 {
+        width: 640px;
+        font-size: 48px;
+        line-height: 70px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    /* Swirl arrow: natural size 35 x 129, placed beside "Analysts" */
+    .swirl-arrow-desktop {
+        right: auto;
+        bottom: auto;
+        left: 499px;
+        top: 94px;
+        width: 35px;
+        height: 129px;
+        z-index: 1;
+    }
+
+    .compliance-desc-col {
+        width: 600px;
+    }
+
+    .compliance-desc-col .section-desc {
+        font-size: 18px;
+        line-height: 32.4px;
+        color: #000;
+    }
+
+    /* Image column 646px + cards column 594px, both 594px tall */
+    .compliance-grid {
+        grid-template-columns: 646px 594px;
+        gap: 0;
+        align-items: stretch;
+    }
+
+    .compliance-image-col {
+        width: 646px;
+        height: 594px;
+        position: static; /* chevrons anchor to the full-width section */
+    }
+
+    .dashboard-mockup {
+        justify-content: flex-start;
+    }
+
+    .dashboard-mockup img {
+        width: 594px;
+        height: 594px;
+    }
+
+    /* Chevrons sit on the left edge of the page, overlapping the image bottom */
+    .bottom-chevrons {
+        position: absolute;
+        left: 0;
+        bottom: 28px;
+        margin: 0;
+    }
+
+    .compliance-cards-col {
+        width: 594px;
+        height: 594px;
+        gap: 40px;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .feature-card {
+        width: 594px !important;
+        min-width: 594px;
+        max-width: 594px;
+        height: 142px !important;
+        min-height: 142px;
+        max-height: 142px;
+        align-items: flex-start;
+        gap: 26px;
+        padding: 20px;
+    }
+
+    .card-icon {
+        width: 36px;
+        height: 36px;
+        background: none;
+        border-radius: 0;
+    }
+
+    .card-icon img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .card-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .feature-card h3 {
+        font-size: 24px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+        color: #000;
+    }
+
+    .feature-card p.body-regular {
+        font-size: 18px;
+        line-height: 32.4px;
+        color: #000;
     }
 }
