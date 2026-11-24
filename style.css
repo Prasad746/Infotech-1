@@ -313,7 +313,7 @@ body {
 }
 
 .body-regular {
-    color: var(--text-muted);
+    color: #000;
     font-size: 17px;
     line-height: 28px;
 }
