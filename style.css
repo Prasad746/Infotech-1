@@ -7,6 +7,8 @@
 
 :root {
     --primary-blue: #3b49df;
+    --nav-link-color: #282828;
+    --nav-active-color: #4356D6;
     --primary-hover: #303bc5;
     --text-dark: #111827;
     --text-muted: #4b5563;
@@ -94,7 +96,7 @@ body {
 .navbar {
     position: sticky;
     top: 0;
-    background: var(--white);
+    background: #ffffff;
     z-index: 1000;
     padding: 18px 0;
 }
@@ -148,14 +150,14 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-muted);
+    color: var(--nav-link-color);
     font-size: 16px;
     font-weight: 400;
     transition: color 0.2s;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--primary-blue);
+    color: var(--nav-active-color);
     font-weight: 500;
 }
 
@@ -261,7 +263,7 @@ body {
 
 .drawer-links a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--nav-link-color);
     font-size: 18px;
     font-weight: 500;
 }
@@ -276,6 +278,7 @@ body {
    ========================================== */
 .hero-section {
     padding: 40px 0 90px 0;
+    background-color: #FAFBFF;
 }
 
 .hero-grid {
@@ -299,6 +302,16 @@ body {
     margin-bottom: 24px;
 }
 
+/* Desktop-only line breaks to match the 1440px Figma heading layout */
+.desktop-hero-break {
+    display: block;
+}
+
+/* The original break after "Compliance" is only used on tablet */
+.hero-break {
+    display: none;
+}
+
 .body-regular {
     color: var(--text-muted);
     font-size: 17px;
@@ -318,7 +331,7 @@ body {
     align-items: center;
     gap: 12px;
     font-size: 17px;
-    color: var(--text-dark);
+    color: #000000;
 }
 
 .check-icon {
@@ -430,6 +443,7 @@ body {
 .compliance-desc-col .section-desc {
     font-size: 17px;
     line-height: 30px;
+    color: #000;
 }
 
 .compliance-grid {
@@ -578,6 +592,7 @@ body {
         width: 100% !important;
         min-width: 0;
         max-width: 594px;
+        
         height: auto !important;
         min-height: 0;
         max-height: none;
@@ -615,12 +630,19 @@ body {
         line-height: 58px;
         margin-bottom: 24px;
     }
+    .desktop-hero-break {
+        display: none;
+    }
     .hero-break {
         display: inline;
     }
     .hero-content .body-regular {
         max-width: 620px;
         margin: 0 auto;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 32px;
     }
     .checklist {
         display: inline-flex;
@@ -663,6 +685,7 @@ body {
     .compliance-desc-col .section-desc {
         font-size: 17px;
         line-height: 29px;
+        color: #000;
     }
     .swirl-arrow-desktop {
         display: none;
@@ -704,12 +727,13 @@ body {
 
     .compliance-cards-col {
         width: 100%;
-        gap: 22px;
+        gap: 42px;
         align-items: stretch;
     }
     .feature-card {
         width: 100% !important;
         max-width: none;
+        height: 142px !important;
         padding: 34px 28px;
         gap: 20px;
         align-items: flex-start;
@@ -738,6 +762,7 @@ body {
     }
     .navbar {
         padding: 14px 0;
+        background: #ffffff;
     }
     .nav-links {
         display: none;
@@ -749,14 +774,7 @@ body {
         gap: 12px;
     }
     .nav-cta {
-        display: flex;
-        width: 104px !important;
-        min-width: 104px;
-        max-width: 104px;
-        height: 38px !important;
-        min-height: 38px;
-        max-height: 38px;
-        flex: 0 0 104px !important;
+        display: none;
     }
     .btn-nav {
         width: 104px !important;
@@ -779,7 +797,7 @@ body {
     }
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 24px;
     }
     .hero-content {
         text-align: center;
@@ -789,24 +807,57 @@ body {
         line-height: 44px;
         margin-bottom: 18px;
     }
+    .desktop-hero-break {
+        display: none;
+    }
     .hero-break {
         display: none;
     }
-    .body-regular {
-        font-size: 15px;
-        line-height: 24px;
+    .hero-content .body-regular {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 32px;
+        max-width: 100%;
+        margin: 0 auto;
     }
     .checklist {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
         text-align: left;
         margin: 20px 0;
         gap: 12px;
+        width: 100%;
+        max-width: none;
     }
+
+    /* Keep the check icon in a fixed column and give the text the remaining width. */
     .checklist li {
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 20px minmax(0, 1fr);
+        align-items: start;
+        column-gap: 10px;
+        width: 100%;
         font-size: 15px;
         line-height: 22px;
-        gap: 10px;
+        box-sizing: border-box;
     }
+
+    .checklist li .check-icon {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .checklist li > span:last-child {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .checklist li:nth-child(3) > span:last-child {
+        max-width: 230px;
+    }
+
     .check-icon {
         width: 20px;
         height: 20px;
@@ -832,10 +883,11 @@ body {
     .hero-visual {
         width: 100%;
         margin: 0 auto;
+        transform: translateY(10px);
     }
     .hero-visual .hero-img {
-        width: 100%;
-        height: auto;
+        width: 350px;
+        height: 296.13px;
     }
 
     .compliance-section {
@@ -858,6 +910,7 @@ body {
     .compliance-desc-col .section-desc {
         font-size: 15px;
         line-height: 24px;
+        color: #000;
     }
     .swirl-arrow-desktop {
         display: none;
@@ -898,7 +951,7 @@ body {
 
     .compliance-cards-col {
         width: 100%;
-        gap: 16px;
+        gap: 42px;
         align-items: stretch;
     }
     .feature-card {
@@ -1065,5 +1118,291 @@ body {
         font-size: 18px;
         line-height: 32.4px;
         color: #000;
+    }
+}
+
+
+/* ==========================================
+   HERO H1 - FIGMA MATCH AT DESKTOP (1440px)
+   Keep the three intended heading lines together.
+   ========================================== */
+@media (min-width: 1280px) {
+    .hero-grid {
+        grid-template-columns: 650px minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .hero-visual .hero-img {
+        transform: none;
+    }
+
+    .hero-content {
+        min-width: 0;
+    }
+
+    .hero-content h1.hero-title {
+        width: 100%;
+        font-size: 62px;
+        line-height: 76px;
+        font-weight: 700;
+    }
+
+    .hero-title .hero-title-line {
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hero-title .compliance-wrapper {
+        display: inline-block;
+    }
+
+    .hero-title .underline-image {
+        width: 349px;
+        height: 19px;
+        max-width: none;
+        object-fit: fill;
+    }
+}
+
+/* Keep heading text naturally wrapping at tablet and mobile widths. */
+@media (max-width: 1279px) {
+    .hero-title .hero-title-line {
+        display: inline;
+        white-space: normal;
+    }
+}
+
+
+
+/* ==========================================
+   HERO SECTION - 1440px FIGMA ALIGNMENT
+   Only paragraph wrapping and image position
+   ========================================== */
+@media (min-width: 1280px) {
+
+    /* Match paragraph line wrapping with Figma */
+    .hero-content > p.body-regular {
+        width: 570px;
+        max-width: 100%;
+        color: #000000;
+        
+    }
+
+    /* Move illustration slightly to the right */
+    .hero-visual .hero-img {
+    transform: translateX(-110px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .bottom-chevrons {
+        position: static;
+        display: block;
+        margin-top: 6px;
+        align-self: flex-start;
+        transform: none;
+        width: 100%;
+    }
+
+}
+/* ==========================================
+   FEATURE CARD FIGMA MATCH - TABLET & MOBILE
+   Desktop styles are intentionally untouched.
+   ========================================== */
+
+/* Tablet: 768px–1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .compliance-cards-col {
+        width: 100%;
+        gap: 42px;
+        align-items: stretch;
+    }
+
+    .feature-card {
+        box-sizing: border-box;
+        width: 100% !important;
+        min-width: 0;
+        max-width: none;
+        height: 154px !important;
+        min-height: 154px;
+        max-height: 154px;
+        padding: 24px;
+        gap: 30px;
+        align-items: flex-start;
+        background-color: #FAFBFF;
+        border: 1px solid #E2E7FF;
+    }
+
+    .feature-card .card-icon {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .feature-card .card-icon img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .feature-card .card-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .feature-card h3 {
+        margin: 0 0 14px;
+        color: #000000;
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    .feature-card p.body-regular {
+        margin: 0;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+    }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+    .compliance-cards-col {
+        width: 100%;
+        gap: 42px;
+        align-items: stretch;
+    }
+
+    .feature-card {
+        box-sizing: border-box;
+        width: 100% !important;
+        min-width: 0;
+        max-width: none;
+        height: auto !important;
+        min-height: 0;
+        max-height: none;
+        padding: 24px;
+        gap: 20px;
+        align-items: flex-start;
+        background-color: #FAFBFF;
+        border: 1px solid #E2E7FF;
+    }
+
+    .feature-card .card-icon {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .feature-card .card-icon img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .feature-card .card-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .feature-card h3 {
+        margin: 0 0 14px;
+        color: #000000;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .feature-card p.body-regular {
+        display: block;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        color: #000000;
+        font-size: 16px !important;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0;
+    }
+}
+
+
+/* FINAL MOBILE CARD MATCH — append after all existing rules */
+@media (max-width: 767px) {
+    .compliance-cards-col {
+        gap: 27px;
+    }
+
+    .feature-card {
+        box-sizing: border-box;
+        width: 100% !important;
+        min-width: 0;
+        max-width: none;
+        height: auto !important;
+        min-height: 0;
+        max-height: none;
+        padding: 20px 22px !important;
+        gap: 26px !important;
+        align-items: flex-start;
+    }
+
+    .feature-card .card-icon {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        margin: 0;
+    }
+
+    .feature-card .card-icon img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .feature-card .card-text {
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+    }
+
+    .feature-card h3 {
+        margin: 0 0 12px !important;
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+        font-weight: 600;
+    }
+
+    .feature-card p.body-regular {
+        display: block;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        font-size: 20px !important;
+        line-height: 32px !important;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
+}
+@media (max-width: 767px) {
+    .hero-content .checklist {
+        display: flex;
+        width: fit-content;
+        margin: 20px auto;
+        text-align: left;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .compliance-top-container {
+        margin-bottom: 60px !important;
+    }
+
+    .compliance-grid {
+        align-items: start;
     }
 }
